@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.calc-head h3 {
+				background: #FFFFFF;
+				width: 100%;
+				height: 80px;
+				font-size: 2em;
+				box-shadow: 1px 1px 1px #222222;
+				line-height: 80px;
+				text-align: right;
+				padding-right: 10px;
+			}
+			
+			.calc-body ul {
+				list-style: none;
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			.calc-body ul li {
+				float: left;
+				width: 25%;
+				border-bottom: 1px solid #333333;
+				border-right: 1px solid #333333;
+				font-size: 2em;
+				padding: 1em 0;
+				text-align: center;
+			}
+			
+			.calc-body ul li:last-child {
+				border-right: 0px;
+				background: red;
+				color: #ffffff;
+			}
+			
+			.calc-body ul li.calc_zero {
+				width: 50%;
+			}
+			
+			.calc-body ul li:hover {
+				background: #555555;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="calc-head">
+			<h3 id="screen">0</h3>
+		</div>
+		<div class="calc-body">
+			<ul>
+				<li id="ac">AC</li>
+				<li id="jiajian">±</li>
+				<li id="percent">%</li>
+				<li id="chu">/</li>
+
+			</ul>
+			<ul>
+				<li class="num">7</li>
+				<li class="num">8</li>
+				<li class="num">9</li>
+				<li id="chen">*</li>
+
+			</ul>
+			<ul>
+				<li class="num">4</li>
+				<li class="num">5</li>
+				<li class="num">6</li>
+				<li id="jian">-</li>
+
+			</ul>
+			<ul>
+				<li class="num">1</li>
+				<li class="num">2</li>
+				<li class="num">3</li>
+				<li id="jia">+</li>
+
+			</ul>
+			<ul>
+				<li class="calc_zero num">0</li>
+				<li id="dot">.</li>
+				<li id="return_btn">=</li>
+			</ul>
+		</div>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			var temp = "";
+			var result = "";
+			var flag = false;
+			$(".num").click(function() {
+				temp = temp + $(this).html();
+				$("#screen").html(temp);
+				flag = true;
+			});
+			$("#jia").click(function() {
+				if(flag) {
+					temp = temp + $(this).html();
+					$("#screen").html(temp);
+					flag = false;
+				}
+			});
+			$("#jian").click(function() {
+				if(flag) {
+					temp = temp + $(this).html();
+					$("#screen").html(temp);
+					flag = false;
+				}
+			});
+			$("#chen").click(function() {
+				if(flag) {
+					temp = temp + $(this).html();
+					$("#screen").html(temp);
+					flag = false;
+				}
+			});
+			$("#chu").click(function() {
+				if(flag) {
+					temp = temp + $(this).html();
+					$("#screen").html(temp);
+					flag = false;
+				}
+			});
+			$("#percent").click(function() {
+				if(flag) {
+					temp = temp + $(this).html();
+					$("#screen").html(temp);
+					flag = false;
+				}
+			});
+			$("#dot").click(function() {
+				if(flag) {
+					temp = temp + $(this).html();
+					$("#screen").html(temp);
+					flag = false;
+				}
+			});
+			$("#return_btn").click(function() {
+				result = eval(temp);
+				$("#screen").html(result);
+				temp = result;
+			});
+			$("#ac").click(function() {
+				temp = "";
+				result = "";
+				$("#screen").html(0);
+			});
+		</script>
+	</body>
+
+</html>
